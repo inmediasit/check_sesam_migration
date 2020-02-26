@@ -104,8 +104,10 @@ def main():
         # get comment
         item_comment = []
         for i in content:
-            item_comment.append(i['sepcomment'])
-
+            try:
+                item_comment.append(i['sepcomment'])
+            except:
+                item_comment.append("no sepcomment for this Job. Please check backup logs")
          # shell output
         for i in range(len(item_state)):
             print(item_state[i] + " " + item_name[i] + " " + item_mtime[i] + "      " + item_comment[i])
